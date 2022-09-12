@@ -11,13 +11,6 @@ export default function Calculator({
   projectedStartingSalary = 50000,
 }) {
   const chartRef = useRef<Chart | null>(null);
-  console.log(
-    getCumulativeEarningsArray(getAnnualSalariesArray()),
-    Array(47)
-      .fill(0)
-      .map((_, i) => i + 18)
-  );
-
   return (
     <div>
       <canvas
