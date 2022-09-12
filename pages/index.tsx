@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "styles/Home.module.scss";
+import Calculator from "../components/Calculator";
 
 const Home: NextPage = () => {
   return (
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
         College is expensive. Picking where to go is hard. We make deciding
         easy.
       </h3>
+      <Calculator />
     </main>
   );
 };
