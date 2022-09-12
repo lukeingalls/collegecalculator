@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import Chart from "chart.js/auto";
 import {
   getAnnualSalariesArray,
@@ -15,19 +15,7 @@ export default function Calculator({
     <div>
       <canvas
         ref={(ref) => {
-          let interval = setInterval(() => {
-            if (!chartRef.current) return;
-            chartRef.current.data.datasets[1].data = getCumulativeEarningsArray(
-              getAnnualSalariesArray({
-                workingYears: 40,
-                averageAnnualRaise: Math.random() / 10,
-                startingSalary: 120000,
-              })
-            );
-            chartRef.current.update();
-          }, 5000);
           if (!ref) {
-            clearInterval(interval);
             chartRef.current?.destroy();
             return;
           }
@@ -48,9 +36,9 @@ export default function Calculator({
                   label: "College educated",
                   data: getCumulativeEarningsArray(
                     getAnnualSalariesArray({
-                      averageAnnualRaise: 0.05,
+                      averageAnnualRaise: 0.1,
                       workingYears: 40,
-                      startingSalary: 120000,
+                      startingSalary: 175000,
                     })
                   ),
                 },
@@ -58,8 +46,8 @@ export default function Calculator({
             },
           });
         }}
-        width="600"
-        height="600"
+        width="100"
+        height="100"
       />
     </div>
   );
